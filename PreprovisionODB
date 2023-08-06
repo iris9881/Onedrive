@@ -1,8 +1,5 @@
-PS C:\Windows\system32> Install-Module -Name Microsoft.Online.SharePoint.PowerShell
-PS C:\Windows\system32> Update-Module -Name Microsoft.Online.SharePoint.PowerShell
-PS C:\Windows\system32> Connect-MsolService
-PS C:\Windows\system32> Connect-SPOService -Url https://contoso-admin.sharepoint.com/  #SPO admin URL
-PS C:\Windows\system32> Get-Content -path "C:\Users.csv" | ForEach-Object { Set-MsolUser -UserPrincipalName $_ -BlockCredential $False }  #CSV file contains UPNs where you want to preprovision 
+##Install SPO module first(Install-Module -Name Microsoft.Online.SharePoint.PowerShell) and then run the below script
 
-PS C:\Windows\system32> $users = Get-Content -path "C:\One\Users.csv" 
-PS C:\Windows\system32> Request-SPOPersonalSite -UserEmails $users
+Connect-SPOService -Url https://test9881-admin.sharepoint.com/  
+$users = Get-Content -path "C:\One\Users1.csv" 
+Request-SPOPersonalSite -UserEmails $users
